@@ -4,176 +4,19 @@
     <app-sidebar></app-sidebar>
 
 
+    <div class="workspace">
 
-    <!-- Main -->
-    <main class="workspace">
+        <app-header></app-header>
 
+        <app-chat-window></app-chat-window>
 
-        <!-- Header -->
-        <header class="header">
+        <app-prompt-input></app-prompt-input>
 
-            <div>
-                <h2>
-                    AI Documentation Assistant
-                </h2>
-
-                <p>
-                    Generate technical documentation with AI
-                </p>
-            </div>
-
-
-            <div class="model-info">
-
-                <div>
-                    <label>Model</label>
-                    <strong>Llama 3.1</strong>
-                </div>
-
-
-                <div>
-                    <label>Status</label>
-                    <strong class="online">
-                        Connected
-                    </strong>
-                </div>
-
-            </div>
-
-        </header>
-
-
-
-        <!-- Chat -->
-        <section class="chat">
-
-
-            <div class="message user">
-
-                <div class="avatar">
-                    U
-                </div>
-
-
-                <div class="bubble">
-
-                    Documenta este endpoint:
-
-                    <pre>
-GET /api/users
-          </pre>
-
-                </div>
-
-            </div>
-
-
-
-
-            <div class="message assistant">
-
-                <div class="avatar">
-                    AI
-                </div>
-
-
-                <div class="bubble">
-
-                    <h3>
-                        API Users Endpoint
-                    </h3>
-
-
-                    <p>
-                        Obtiene la lista de usuarios registrados.
-                    </p>
-
-
-                    <h4>
-                        Request
-                    </h4>
-
-
-
-
-
-                </div>
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- Input -->
-        <footer class="composer">
-
-            <textarea placeholder="Escribe tu solicitud..."></textarea>
-
-
-            <button>
-                Enviar
-            </button>
-
-
-        </footer>
-
-
-    </main>
-
-
+    </div>
 
 
     <!-- Right panel -->
-    <aside class="context-panel">
-
-
-        <h3>
-            Contexto
-        </h3>
-
-
-        <div class="card">
-
-            <span>
-                Proyecto
-            </span>
-
-            <strong>
-                AI Documentation
-            </strong>
-
-        </div>
-
-
-        <div class="card">
-
-            <span>
-                Archivos
-            </span>
-
-            <strong>
-                12 documentos
-            </strong>
-
-        </div>
-
-
-        <div class="card">
-
-            <span>
-                Tokens
-            </span>
-
-            <strong>
-                24k / 100k
-            </strong>
-
-        </div>
-
-
-    </aside>
+    <app-context-panel></app-context-panel>
 
 
 </div>

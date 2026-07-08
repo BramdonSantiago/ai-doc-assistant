@@ -1,4 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+
+    /* Colors */
+
+    // --background: #0F172A;
+    --background: #061122;
+
+    // --surface: #1E293B;
+    --surface: #101d2f;
+
+    --surface-light: #334155;
+
+    --primary: #3B82F6;
+
+    --primary-hover: #2563EB;
+
+    --success: #22C55E;
+
+    --danger: #EF4444;
+
+    --text-primary: #F8FAFC;
+
+    --text-secondary: #94A3B8;
+
+    --border: rgba(255, 255, 255, .08);
+
+
+
+    /* Radius */
+
+    --radius-sm: 8px;
+
+    --radius-md: 12px;
+
+    --radius-lg: 18px;
+
+
+
+    /* Shadows */
+
+    --shadow:
+
+        0 10px 30px rgba(0, 0, 0, .25);
+
+
+
+    /* Sidebar */
+
+    --sidebar-width: 270px;
+
+    --context-width: 300px;
+
+}
+
 html {
     box-sizing: border-box;
 }
@@ -12,7 +67,10 @@ html {
 body {
     padding: 0;
     margin: 0;
+    background: var(--background);
+    color: var(--text-primary);
 }
+
 
 h1,
 h2,
@@ -20,3 +78,5 @@ h3,
 p {
     margin-top: 0;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,61 @@
+.header {
+
+    padding: 1.5rem;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, .05);
+
+
+    h2 {
+
+        margin: 0;
+
+    }
+
+
+    p {
+
+        color: var(--text-secondary);
+        margin-bottom: 0;
+
+    }
+
+}
+
+
+.model-info {
+
+    display: flex;
+
+    gap: 25px;
+
+
+    label {
+
+        display: block;
+
+        color: var(--text-secondary);
+
+        font-size: 12px;
+
+    }
+
+
+    strong {
+
+        display: block;
+
+    }
+
+
+    .online {
+
+        color: var(--success);
+
+    }
+
+}

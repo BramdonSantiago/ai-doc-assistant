@@ -1,17 +1,6 @@
-$background: #061121;
-$surface: #101d2e;
-$surface-light: #101d2e;
-// $surface-light: #334155;
-
-$primary: #3b82f6;
-$text: #f8fafc;
-$text-muted: #94a3b8;
-
-$success: #22c55e;
-
 .sidebar {
     min-height: 100dvh;
-    background: darken($surface, 5%);
+    background: var(--background);
 
     padding: 1.250rem;
 
@@ -46,7 +35,7 @@ $success: #22c55e;
 
         border-radius: 12px;
 
-        background: $primary;
+        background: var(--primary);
 
         font-weight: 700;
 
@@ -64,7 +53,7 @@ $success: #22c55e;
 
     span {
 
-        color: $text-muted;
+        color: var(--text-secondary);
 
         font-size: 13px;
 
@@ -91,7 +80,7 @@ $success: #22c55e;
 
         border-radius: 8px;
 
-        color: $text-muted;
+        color: var(--text-secondary);
 
         cursor: pointer;
 
@@ -99,7 +88,7 @@ $success: #22c55e;
         &:hover,
         &.active {
 
-            background: $surface;
+            background: var(--surface);
 
             color: white;
 
@@ -114,7 +103,7 @@ $success: #22c55e;
 
     margin-top: auto;
 
-    color: $text-muted;
+    color: var(--text-secondary);
 
 
     .status {
@@ -133,7 +122,7 @@ $success: #22c55e;
 
             border-radius: 50%;
 
-            background: $success;
+            background: var(--success);
 
         }
 
@@ -152,7 +141,7 @@ $success: #22c55e;
 
     border-radius: 10px;
 
-    background: $primary;
+    background: var(--primary);
 
     color: white;
 
