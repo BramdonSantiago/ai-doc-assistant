@@ -1,0 +1,162 @@
+$background: #061121;
+$surface: #101d2e;
+$surface-light: #101d2e;
+// $surface-light: #334155;
+
+$primary: #3b82f6;
+$text: #f8fafc;
+$text-muted: #94a3b8;
+
+$success: #22c55e;
+
+.sidebar {
+    min-height: 100dvh;
+    background: darken($surface, 5%);
+
+    padding: 1.250rem;
+
+    border-right:
+        1px solid rgba(255, 255, 255, .05);
+
+
+    display: flex;
+
+    flex-direction: column;
+
+
+}
+
+.brand {
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+
+    .logo {
+
+        width: 42px;
+        height: 42px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 12px;
+
+        background: $primary;
+
+        font-weight: 700;
+
+    }
+
+
+    h1 {
+
+        margin: 0;
+
+        font-size: 18px;
+
+    }
+
+
+    span {
+
+        color: $text-muted;
+
+        font-size: 13px;
+
+    }
+
+}
+
+
+
+.menu {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+
+    a {
+
+        padding: 12px;
+
+        border-radius: 8px;
+
+        color: $text-muted;
+
+        cursor: pointer;
+
+
+        &:hover,
+        &.active {
+
+            background: $surface;
+
+            color: white;
+
+        }
+
+    }
+
+}
+
+
+.sidebar-footer {
+
+    margin-top: auto;
+
+    color: $text-muted;
+
+
+    .status {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+
+        span {
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: $success;
+
+        }
+
+    }
+
+}
+
+
+.new-chat {
+
+    margin-top: 30px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: $primary;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+

@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 html {
     box-sizing: border-box;
 }
@@ -15,3 +14,9 @@ body {
     margin: 0;
 }
 
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
