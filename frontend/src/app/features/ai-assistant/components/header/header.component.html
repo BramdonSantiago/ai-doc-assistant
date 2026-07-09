@@ -21,10 +21,23 @@
 
         <div>
             <label>Status</label>
-            <strong class="online">
-                Connected
-            </strong>
+            @if (connectionStatus() === 'online') {
+                <strong class="online">
+                    {{ connectionLabel() }}
+                </strong>
+            }
+            @else if (connectionStatus() === 'offline') {
+                <strong class="offline">
+                    {{ connectionLabel() }}
+                </strong>
+
+            }
         </div>
+        @if (responseTime()) {
+            <div>
+                ⚡ {{ responseTime() }}
+            </div>
+        }
 
     </div>
 

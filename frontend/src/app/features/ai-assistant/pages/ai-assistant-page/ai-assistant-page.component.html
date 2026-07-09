@@ -1,21 +1,18 @@
 <div class="assistant-layout">
 
-    <!-- Sidebar -->
     <app-sidebar></app-sidebar>
 
 
     <div class="workspace">
 
-        <app-header></app-header>
+        <app-header [connectionStatus]="connectionStatus()" [responseTime]="formattedResponseTime()"></app-header>
 
-        <app-chat-window></app-chat-window>
+        <app-chat-window [messages]="messages()" [isTyping]="isTyping()" [error]="error()" (retry)="retry()"></app-chat-window>
 
-        <app-prompt-input></app-prompt-input>
+        <app-prompt-input [isTyping]="isTyping()" (sendMessage)="sendMessage($event)"></app-prompt-input>
 
     </div>
 
-
-    <!-- Right panel -->
     <app-context-panel></app-context-panel>
 
 

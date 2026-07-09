@@ -1,1 +1,38 @@
-<p>message works!</p>
+@let currentMessage = message();
+
+<div class="message" [class.user]="isUser()" [class.assistant]="isAssistant()">
+
+    <div class="avatar">
+
+        {{ avatar() }}
+
+    </div>
+
+    <div class="bubble">
+
+        <markdown [data]="currentMessage.content">
+        </markdown>
+
+        @if (isAssistant()) {
+
+        <div class="actions">
+
+            <button type="button" (click)="copy()">
+
+                {{ copied() ? '✓ Copiado' : '📋 Copiar' }}
+
+            </button>
+
+            <button type="button" (click)="onRegenerate()">
+
+                🔄 Regenerar
+
+            </button>
+
+        </div>
+
+        }
+
+    </div>
+
+</div>

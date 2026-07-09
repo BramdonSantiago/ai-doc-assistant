@@ -1,11 +1,11 @@
 <footer class="composer">
 
-    <textarea placeholder="Escribe tu solicitud..."></textarea>
+    <textarea [disabled]="isTyping()" [(ngModel)]="text" (keydown.enter)="onEnter($event)" placeholder="Escribe tu solicitud..." #prompt></textarea>
 
+    <button [disabled]="!text().trim() || isTyping()" (click)="send()">
 
-    <button>
         Enviar
-    </button>
 
+    </button>
 
 </footer>

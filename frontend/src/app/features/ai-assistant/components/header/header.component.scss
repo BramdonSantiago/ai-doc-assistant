@@ -30,6 +30,7 @@
 .model-info {
 
     display: flex;
+    align-items: center;
 
     gap: 25px;
 
@@ -53,9 +54,10 @@
 
 
     .online {
-
         color: var(--success);
-
+    }
+    .offline {
+        color: red;
     }
 
 }

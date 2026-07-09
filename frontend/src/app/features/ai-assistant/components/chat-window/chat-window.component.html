@@ -1,58 +1,39 @@
-<section class="chat">
+<section class="chat" #container>
 
+    @for (message of messages(); track message.id) {
+    <app-message [message]="message">
+    </app-message>
+    }
 
-    <div class="message user">
+    @if (isTyping()) {
 
-        <div class="avatar">
-            U
-        </div>
+    <div class="typing">
 
+        La IA está escribiendo
 
-        <div class="bubble">
-
-            Documenta este endpoint:
-
-            <pre>
-GET /api/users
-          </pre>
-
-        </div>
+        <span></span>
+        <span></span>
+        <span></span>
 
     </div>
 
+    }
 
+    @if (error(); as errorMessage) {
+        <div class="error" role="alert" aria-live="polite">
 
-
-    <div class="message assistant">
-
-        <div class="avatar">
-            AI
-        </div>
-
-
-        <div class="bubble">
-
-            <h3>
-                API Users Endpoint
-            </h3>
-
-
-            <p>
-                Obtiene la lista de usuarios registrados.
-            </p>
-
-
-            <h4>
-                Request
-            </h4>
-
-
-
-
+            <markdown [data]="errorMessage"></markdown>
 
         </div>
-
-    </div>
+        <button
+            (click)="retry.emit()"
+            type="button"
+            >
+    
+            🔄 Reintentar
+    
+        </button>
+    }
 
 
 </section>
