@@ -18,11 +18,7 @@
 
 
     <nav class="menu">
-
-        <a class="active">
-            <mat-icon aria-hidden="false" aria-label="Chat icon" fontIcon="chat"></mat-icon>
-            Chat
-        </a>
+        <h3>Navegación</h3>
 
         <a>
             <mat-icon aria-hidden="false" aria-label="Book icon" fontIcon="book"></mat-icon>
@@ -45,25 +41,141 @@
         </a>
 
         <a>
-            <!-- <span class="material-symbols-outlined">settings</span> -->
             <mat-icon aria-hidden="false" aria-label="Settings icon" fontIcon="settings"></mat-icon>
             Configuración
         </a>
 
     </nav>
 
+    <section class="recent-chats">
 
-    <div class="sidebar-footer">
+        <h3>Chats recientes</h3>
 
-        <div class="status">
-            <span></span>
-            Connected
-        </div>
+        <ul>
 
-        <small>
-            Groq API · Llama 3.1
-        </small>
+            <li>
 
-    </div>
+                <a>
+
+                    <mat-icon aria-hidden="false" aria-label="Documentation chat" fontIcon="description">
+                    </mat-icon>
+
+                    <div class="chat-info">
+
+                        <span class="chat-title">
+                            Documentación LoginComponent
+                        </span>
+
+                        <span class="chat-time">
+                            Hoy
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a>
+
+                    <mat-icon aria-hidden="false" aria-label="README chat" fontIcon="article">
+                    </mat-icon>
+
+                    <div class="chat-info">
+
+                        <span class="chat-title">
+                            README React
+                        </span>
+
+                        <span class="chat-time">
+                            Ayer
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a>
+
+                    <mat-icon aria-hidden="false" aria-label="Architecture chat" fontIcon="account_tree">
+                    </mat-icon>
+
+                    <div class="chat-info">
+
+                        <span class="chat-title">
+                            Arquitectura ERP
+                        </span>
+
+                        <span class="chat-time">
+                            Hace 3 días
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a>
+
+                    <mat-icon aria-hidden="false" aria-label="API chat" fontIcon="api">
+                    </mat-icon>
+
+                    <div class="chat-info">
+
+                        <span class="chat-title">
+                            API Usuarios
+                        </span>
+
+                        <span class="chat-time">
+                            Hace 3 días
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a>
+
+                    <mat-icon aria-hidden="false" aria-label="Code Review chat" fontIcon="code">
+                    </mat-icon>
+
+                    <div class="chat-info">
+
+                        <span class="chat-title">
+                            Code Review Angular
+                        </span>
+
+                        <span class="chat-time">
+                            Hace 5 días
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <a class="view-all">
+            Ver todos los chats
+            <mat-icon fontIcon="arrow_forward"></mat-icon>
+        </a>
+
+    </section>
+
 
 </aside>
