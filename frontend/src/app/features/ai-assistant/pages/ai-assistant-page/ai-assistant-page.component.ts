@@ -1,4 +1,4 @@
-import { Component, signal, computed, inject, DestroyRef, viewChild } from '@angular/core';
+import { Component, signal, computed, inject, DestroyRef, viewChild, OnInit } from '@angular/core';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { ChatWindowComponent } from '../../components/chat-window/chat-window.component';
@@ -19,7 +19,7 @@ import { ConversationStore } from '../../store/conversation.store';
   templateUrl: './ai-assistant-page.component.html',
   styleUrl: './ai-assistant-page.component.scss'
 })
-export class AiAssistantPageComponent {
+export class AiAssistantPageComponent implements OnInit {
   private readonly conversationStore = inject(ConversationStore);
 
   readonly messages = this.conversationStore.messages;
@@ -59,15 +59,9 @@ export class AiAssistantPageComponent {
   // messages = signal<ChatMessage[]>([]);
 
   ngOnInit() {
-
     if (!this.currentConversation()) {
-
-      this.conversationStore.createConversation(
-        this.selectedTask()
-      );
-
+      this.conversationStore.createConversation(this.selectedTask());
     }
-
   }
 
 
@@ -182,16 +176,12 @@ export class AiAssistantPageComponent {
     this.resetConversation();
   }
 
+  selectConversation(id: string): void {
+    this.conversationStore.selectConversation(id);
+  }
+
   resetConversation() {
-    // this.messages.set([
-    //   {
-    //     id: crypto.randomUUID(),
-    //     role: 'assistant',
-    //     content: this.currentAssistant().emptyState,
-    //     createdAt: new Date()
-    //   }
-    // ]);
-    // this.messages.set([]);
+    this.conversationStore.createConversation(this.selectedTask());
     this.error.set("");
     this.lastPrompt.set("");
   }
