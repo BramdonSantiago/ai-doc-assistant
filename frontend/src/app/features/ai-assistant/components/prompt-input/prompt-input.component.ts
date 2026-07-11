@@ -15,6 +15,8 @@ export class PromptInputComponent {
 
   readonly sendMessage = output<string>();
 
+  readonly placeholder = input.required<string>();
+
   onEnter(event: Event): void {
 
     const { shiftKey } = event as KeyboardEvent;

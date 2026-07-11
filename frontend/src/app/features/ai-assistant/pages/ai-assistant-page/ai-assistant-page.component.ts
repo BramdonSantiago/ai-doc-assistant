@@ -9,6 +9,8 @@ import { ConnectionStatus } from '../../models/connection-status.model';
 import { AiService } from '../../services/ai.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
+import { TaskType } from '../../models/task-type.model';
+import { ASSISTANT_OPTIONS } from '../../components/constants/assistant-options.constant';
 
 @Component({
   selector: 'app-ai-assistant-page',
@@ -32,56 +34,23 @@ export class AiAssistantPageComponent {
 
   readonly responseTime = signal<number | null>(null);
 
+  readonly assistants = ASSISTANT_OPTIONS;
 
-  readonly messages = signal<ChatMessage[]>([
-    {
-      id: crypto.randomUUID(),
-      role: 'assistant',
-      content: `
-        # 👋 Bienvenido a AI Documentation Assistant
+  selectedTask = signal<TaskType>('documentation');
 
-        Soy tu asistente especializado en **documentación técnica para desarrolladores**.
-
-        ## ¿Qué puedo hacer?
-
-        - 📄 Generar documentación de código.
-        - 🌐 Documentar endpoints de APIs REST.
-        - 📚 Crear archivos **README.md**.
-        - 🏗️ Explicar la arquitectura de una aplicación.
-        - 🗄️ Describir modelos de datos y bases de datos.
-
-        ## Prueba con alguno de estos ejemplos
-
-        \`\`\`text
-        Documenta este componente Angular.
-        \`\`\`
-
-        \`\`\`text
-        Genera la documentación para este endpoint REST.
-        \`\`\`
-
-        \`\`\`text
-        Explícame cómo funciona este servicio de Angular.
-        \`\`\`
-
-        \`\`\`text
-        Crea un README para este proyecto.
-        \`\`\`
-
-        \`\`\`text
-        Genera documentación técnica para el siguiente código.
-        \`\`\`
-
-        > 💡 También puedes pegar un fragmento de código directamente y generar documentación en formato Markdown.
-
-      `,
-      createdAt: new Date()
-    }
-  ]);
 
   readonly conversationId = signal(
     crypto.randomUUID()
   );
+
+  currentAssistant = computed(() =>
+    ASSISTANT_OPTIONS.find(
+      assistant => assistant.id === this.selectedTask()
+    )!
+  );
+
+  messages = signal<ChatMessage[]>([]);
+
 
   sendMessage(text: string): void {
     if (this.isTyping()) {
@@ -114,6 +83,7 @@ export class AiAssistantPageComponent {
 
     this.aiService.sendMessage({
       conversationId: this.conversationId(),
+      task: this.selectedTask(),
       message: text
     })
       .pipe(
@@ -195,6 +165,23 @@ export class AiAssistantPageComponent {
 
   });
 
+  selectTask(task: TaskType): void {
+    this.selectedTask.set(task);
+    this.resetConversation();
+  }
 
+  resetConversation() {
+    // this.messages.set([
+    //   {
+    //     id: crypto.randomUUID(),
+    //     role: 'assistant',
+    //     content: this.currentAssistant().emptyState,
+    //     createdAt: new Date()
+    //   }
+    // ]);
+    this.messages.set([]);
+    this.error.set("");
+    this.lastPrompt.set("");
+  }
 
 }

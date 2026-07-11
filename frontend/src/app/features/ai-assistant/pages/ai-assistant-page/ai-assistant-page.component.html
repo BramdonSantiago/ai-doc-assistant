@@ -5,11 +5,11 @@
 
     <div class="workspace">
 
-        <app-header [connectionStatus]="connectionStatus()" [responseTime]="formattedResponseTime()"></app-header>
+        <app-header [connectionStatus]="connectionStatus()" [responseTime]="formattedResponseTime()" [selectedTask]="selectedTask()" [assistant]="currentAssistant()" (taskSelected)="selectTask($event)"></app-header>
 
-        <app-chat-window [messages]="messages()" [isTyping]="isTyping()" [error]="error()" (retry)="retry()"></app-chat-window>
+        <app-chat-window [messages]="messages()" [isTyping]="isTyping()" [error]="error()" (retry)="retry()" [emptyState]="currentAssistant().emptyState"></app-chat-window>
 
-        <app-prompt-input [isTyping]="isTyping()" (sendMessage)="sendMessage($event)"></app-prompt-input>
+        <app-prompt-input [isTyping]="isTyping()" (sendMessage)="sendMessage($event)" [placeholder]="currentAssistant().placeholder"></app-prompt-input>
 
     </div>
 

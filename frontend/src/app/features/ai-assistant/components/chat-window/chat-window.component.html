@@ -1,9 +1,14 @@
 <section class="chat" #container>
-
-    @for (message of messages(); track message.id) {
-    <app-message [message]="message">
-    </app-message>
+    @if (messages().length === 0) {
+        <markdown [data]="emptyState()">
+        </markdown>
+    }@else {
+        @for (message of messages(); track message.id) {
+            <app-message [message]="message">
+            </app-message>
+        }
     }
+
 
     @if (isTyping()) {
 

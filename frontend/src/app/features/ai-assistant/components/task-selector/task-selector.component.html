@@ -1,0 +1,14 @@
+<select [value]="selectedTask()" (change)="onChange($event)">
+
+    @for (assistant of assistants; track assistant.id) {
+
+    <option [value]="assistant.id">
+
+        {{ assistant.icon }}
+        {{ assistant.label }}
+
+    </option>
+
+    }
+
+</select>

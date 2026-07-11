@@ -1,6 +1,6 @@
 <header class="header">
 
-    <div>
+    <div style="width: 65%;">
         <h2>
             AI Documentation Assistant
         </h2>
@@ -8,6 +8,21 @@
         <p>
             Generate technical documentation with AI
         </p>
+
+        <div>
+            <app-task-selector [selectedTask]="selectedTask()" (taskSelected)="taskSelected.emit($event)">
+            </app-task-selector>
+            <div>
+                <h2>
+                    {{ assistant().icon }}
+                    {{ assistant().label }}
+                </h2>
+        
+                <p>
+                    {{ assistant().description }}
+                </p>
+            </div>
+        </div>
     </div>
 
 
@@ -22,21 +37,21 @@
         <div>
             <label>Status</label>
             @if (connectionStatus() === 'online') {
-                <strong class="online">
-                    {{ connectionLabel() }}
-                </strong>
+            <strong class="online">
+                {{ connectionLabel() }}
+            </strong>
             }
             @else if (connectionStatus() === 'offline') {
-                <strong class="offline">
-                    {{ connectionLabel() }}
-                </strong>
+            <strong class="offline">
+                {{ connectionLabel() }}
+            </strong>
 
             }
         </div>
         @if (responseTime()) {
-            <div>
-                ⚡ {{ responseTime() }}
-            </div>
+        <div>
+            ⚡ {{ responseTime() }}
+        </div>
         }
 
     </div>

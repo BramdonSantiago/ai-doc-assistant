@@ -1,8 +1,9 @@
 const client = require("../config/llm");
-const documentationPrompt = require("../prompts/documentation.prompt");
+const prompts = require("../prompts");
 const AppError = require("../errors/AppError");
 
-const askLLM = async (messages) => {
+const askLLM = async ({ task, messages }) => {
+    const systemPrompt = prompts[task] ?? prompts.documentation;
 
     try {
 
@@ -13,7 +14,7 @@ const askLLM = async (messages) => {
             messages: [
                 {
                     role: "system",
-                    content: documentationPrompt
+                    content: systemPrompt
                 },
                 ...messages
             ],

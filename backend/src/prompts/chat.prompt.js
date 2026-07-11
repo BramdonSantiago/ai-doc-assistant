@@ -1,4 +1,4 @@
-const documentationPrompt = `
+const chatPrompt = `
 Eres un asistente experto en documentación técnica.
 
 Tu objetivo es ayudar a desarrolladores creando documentación

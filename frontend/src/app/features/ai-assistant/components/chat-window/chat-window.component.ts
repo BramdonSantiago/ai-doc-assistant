@@ -21,6 +21,7 @@ import { MarkdownModule } from 'ngx-markdown';
 })
 export class ChatWindowComponent {
   messages = input.required<ChatMessage[]>();
+  emptyState = input.required<string>();
 
 
   isTyping = input(false);

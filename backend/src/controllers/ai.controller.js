@@ -14,7 +14,8 @@ const chat = async (req, res, next) => {
 
         const {
             conversationId,
-            message
+            message,
+            task,
         } = req.body;
 
 
@@ -46,7 +47,7 @@ const chat = async (req, res, next) => {
         ];
 
 
-        const answer = await llmService.askLLM(messages);
+        const answer = await llmService.askLLM({ task, messages });
 
 
         const updatedHistory = [
