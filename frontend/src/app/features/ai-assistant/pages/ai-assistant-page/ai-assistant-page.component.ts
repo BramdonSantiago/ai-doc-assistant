@@ -11,6 +11,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
 import { TaskType } from '../../models/task-type.model';
 import { ASSISTANT_OPTIONS } from '../../components/constants/assistant-options.constant';
+import { ConversationStore } from '../../store/conversation.store';
 
 @Component({
   selector: 'app-ai-assistant-page',
@@ -19,6 +20,12 @@ import { ASSISTANT_OPTIONS } from '../../components/constants/assistant-options.
   styleUrl: './ai-assistant-page.component.scss'
 })
 export class AiAssistantPageComponent {
+  private readonly conversationStore = inject(ConversationStore);
+
+  readonly messages = this.conversationStore.messages;
+  readonly currentConversation = this.conversationStore.currentConversation;
+  readonly recentConversations = this.conversationStore.recentConversations;
+
   readonly promptInput = viewChild(PromptInputComponent);
 
   readonly isTyping = signal(false);
@@ -49,7 +56,19 @@ export class AiAssistantPageComponent {
     )!
   );
 
-  messages = signal<ChatMessage[]>([]);
+  // messages = signal<ChatMessage[]>([]);
+
+  ngOnInit() {
+
+    if (!this.currentConversation()) {
+
+      this.conversationStore.createConversation(
+        this.selectedTask()
+      );
+
+    }
+
+  }
 
 
   sendMessage(text: string): void {
@@ -75,7 +94,6 @@ export class AiAssistantPageComponent {
 
 
     this.addMessage(userMessage);
-
 
     this.isTyping.set(true);
     this.error.set("");
@@ -107,7 +125,6 @@ export class AiAssistantPageComponent {
             content: response.answer,
             createdAt: new Date()
           });
-
         },
 
         error: error => {
@@ -131,12 +148,7 @@ export class AiAssistantPageComponent {
 
 
   private addMessage(message: ChatMessage): void {
-
-    this.messages.update(messages => [
-      ...messages,
-      message
-    ]);
-
+    this.conversationStore.addMessage(message);
   }
 
   retry() {
@@ -179,7 +191,7 @@ export class AiAssistantPageComponent {
     //     createdAt: new Date()
     //   }
     // ]);
-    this.messages.set([]);
+    // this.messages.set([]);
     this.error.set("");
     this.lastPrompt.set("");
   }

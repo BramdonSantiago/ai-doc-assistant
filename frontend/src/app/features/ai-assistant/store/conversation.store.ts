@@ -40,6 +40,22 @@ export class ConversationStore {
 
     createConversation(task: TaskType): void {
 
+        const conversation: Conversation = {
+            id: crypto.randomUUID(),
+            title: 'Nueva conversación',
+            task,
+            messages: [],
+            createdAt: new Date(),
+            updatedAt: new Date()
+        };
+
+        this._conversations.update(conversations => [
+            ...conversations,
+            conversation
+        ]);
+
+        this._currentConversationId.set(conversation.id);
+
     }
 
     selectConversation(id: string): void {
@@ -52,6 +68,33 @@ export class ConversationStore {
 
     addMessage(message: ChatMessage): void {
 
+        const currentConversationId = this._currentConversationId();
+
+        if (!currentConversationId) {
+            return;
+        }
+
+        this._conversations.update(conversations =>
+
+            conversations.map(conversation => {
+
+                if (conversation.id !== currentConversationId) {
+                    return conversation;
+                }
+
+                return {
+                    ...conversation,
+                    messages: [
+                        ...conversation.messages,
+                        message
+                    ],
+                    updatedAt: new Date()
+                };
+
+            })
+
+        );
+
     }
 
     updateTitle(title: string): void {
@@ -59,6 +102,6 @@ export class ConversationStore {
     }
 
     deleteConversation(id: string): void {
-        
+
     }
 }
