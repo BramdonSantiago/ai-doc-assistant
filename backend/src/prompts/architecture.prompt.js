@@ -8,3 +8,5 @@ proporciona recomendaciones cuando sea apropiado.
 
 Utiliza Markdown.
 `;
+
+module.exports = architecturePrompt;

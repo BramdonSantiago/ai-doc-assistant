@@ -11,3 +11,5 @@ Reglas:
 - No inventes información.
 - Si falta contexto, solicita aclaraciones.
 `;
+
+module.exports = documentationPrompt;

@@ -6,3 +6,5 @@ parámetros, respuestas, códigos HTTP y ejemplos de uso.
 
 Utiliza Markdown y tablas cuando sea apropiado.
 `;
+
+module.exports = apiPrompt;
