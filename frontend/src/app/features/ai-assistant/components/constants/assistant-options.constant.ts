@@ -4,13 +4,13 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
     {
         id: 'documentation',
         label: 'Documentation',
-        icon: '📄',
+        icon: 'description',
         description:
             'Genera documentación técnica clara y estructurada para código, APIs y proyectos.',
         placeholder:
             'Describe el código que deseas documentar...',
         emptyState: `
-            # 👋 Documentation Assistant
+            #  <span class="material-symbols-outlined">waving_hand</span> Documentation Assistant
 
             Puedo ayudarte a generar documentación técnica clara y estructurada.
 
@@ -26,7 +26,7 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
     {
         id: 'api',
         label: 'API Docs',
-        icon: '🔌',
+        icon: 'cable',
 
         description:
             'Especializado en documentación de APIs REST.',
@@ -35,7 +35,7 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
             'Pega un endpoint, controlador o especificación OpenAPI...',
 
         emptyState: `
-            # 👋 API Documentation
+            # <span class="material-symbols-outlined">waving_hand</span>  API Documentation
 
             Puedo ayudarte a documentar APIs REST.
 
@@ -51,7 +51,7 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
     {
         id: 'readme',
         label: 'README',
-        icon: '📘',
+        icon: 'book_5',
 
         description:
             'Genera README profesionales para tus proyectos.',
@@ -60,7 +60,7 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
             'Describe tu proyecto...',
 
         emptyState: `
-            # 👋 README Generator
+            # <span class="material-symbols-outlined">waving_hand</span>  README Generator
 
             Puedo ayudarte a crear README profesionales.
 
@@ -76,7 +76,7 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
     {
         id: 'architecture',
         label: 'Architecture',
-        icon: '🏗️',
+        icon: 'factory',
 
         description:
             'Analiza la arquitectura y la organización del proyecto.',
@@ -85,7 +85,7 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
             'Describe la arquitectura o pega la estructura del proyecto...',
 
         emptyState: `
-            # 👋 Architecture Assistant
+            # <span class="material-symbols-outlined">waving_hand</span>  Architecture Assistant
 
             Puedo ayudarte a analizar la arquitectura del software.
 
@@ -101,7 +101,7 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
     {
         id: 'chat',
         label: 'General Chat',
-        icon: '💬',
+        icon: 'chat',
 
         description:
             'Asistente general para preguntas de desarrollo de software.',
@@ -110,7 +110,7 @@ export const ASSISTANT_OPTIONS: AssistantOption[] = [
             'Haz una pregunta técnica...',
 
         emptyState: `
-            # 👋 General Chat
+            # <span class="material-symbols-outlined">waving_hand</span>  General Chat
 
             Pregúntame cualquier cosa relacionada con desarrollo de software.
 

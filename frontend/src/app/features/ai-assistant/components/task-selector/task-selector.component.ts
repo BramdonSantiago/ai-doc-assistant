@@ -1,5 +1,4 @@
 import { Component, input, output, computed } from '@angular/core';
-
 import { TaskType } from '../../models/task-type.model';
 import { ASSISTANT_OPTIONS } from './../constants/assistant-options.constant';
 
@@ -26,10 +25,5 @@ export class TaskSelectorComponent {
 
   }
 
-  // currentAssistant = computed(() =>
-  //   ASSISTANT_OPTIONS.find(
-  //     assistant => assistant.id === this.selectedTask()
-  //   )!
-  // );
 
 }

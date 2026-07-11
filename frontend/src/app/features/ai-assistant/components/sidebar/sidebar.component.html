@@ -49,31 +49,35 @@
 
     <section class="recent-chats">
 
-        <h3>Chats recientes</h3>
-
+        <h3>
+            Chats recientes 
+            @if(recentConversations().length){
+                ({{ recentConversations().length }})
+            }
+        </h3>
         <ul>
             @for (conversation of recentConversations(); track conversation.id) {
                 <li>
-    
-                    <a>
-    
-                        <mat-icon aria-hidden="false" aria-label="Documentation chat" fontIcon="description">
+
+                    <a (click)="selectConversation(conversation.id)" [class.active]="conversation.id === currentConversation()?.id">
+
+                        <mat-icon aria-hidden="false" [fontIcon]="getAssistant(conversation.task).icon">
                         </mat-icon>
-    
+
                         <div class="chat-info">
-    
+
                             <span class="chat-title">
                                 {{ conversation.title }}
                             </span>
-    
+
                             <span class="chat-time">
                                 {{ conversation.updatedAt | date:'M/d/yy, h:mm a' }}
                             </span>
-    
+
                         </div>
-    
+
                     </a>
-    
+
                 </li>
             }
         </ul>

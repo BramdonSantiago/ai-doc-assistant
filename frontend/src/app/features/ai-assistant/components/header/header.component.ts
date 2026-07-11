@@ -3,10 +3,11 @@ import { ConnectionStatus } from '../../models/connection-status.model';
 import { TaskType } from '../../models/task-type.model';
 import { TaskSelectorComponent } from '../task-selector/task-selector.component';
 import { AssistantOption } from '../../models/assistant-option.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-header',
-  imports: [TaskSelectorComponent],
+  imports: [MatIconModule, TaskSelectorComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -33,4 +34,6 @@ export class HeaderComponent {
     }
 
   });
+
+
 }

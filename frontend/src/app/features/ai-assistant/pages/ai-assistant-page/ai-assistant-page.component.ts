@@ -88,6 +88,7 @@ export class AiAssistantPageComponent implements OnInit {
 
 
     this.addMessage(userMessage);
+    this.conversationStore.updateTitle(text);
 
     this.isTyping.set(true);
     this.error.set("");
@@ -144,6 +145,7 @@ export class AiAssistantPageComponent implements OnInit {
   private addMessage(message: ChatMessage): void {
     this.conversationStore.addMessage(message);
   }
+  
 
   retry() {
 
@@ -174,10 +176,6 @@ export class AiAssistantPageComponent implements OnInit {
   selectTask(task: TaskType): void {
     this.selectedTask.set(task);
     this.resetConversation();
-  }
-
-  selectConversation(id: string): void {
-    this.conversationStore.selectConversation(id);
   }
 
   resetConversation() {
