@@ -1,6 +1,6 @@
 @let currentMessage = message();
 
-<div class="message" [class.user]="isUser()" [class.assistant]="isAssistant()">
+<div class="message" [class.user]="isUser()" [class.assistant]="isAssistant()" [class.ai]="!isUser()">
 
     <div class="avatar">
 
@@ -15,21 +15,21 @@
 
         @if (isAssistant()) {
 
-        <div class="actions">
+            <div class="actions">
 
-            <button type="button" (click)="copy()">
+                <button type="button" (click)="copy()">
 
-                {{ copied() ? '✓ Copiado' : '📋 Copiar' }}
+                    {{ copied() ? '✓ Copiado' : '📋 Copiar' }}
 
-            </button>
+                </button>
 
-            <button type="button" (click)="onRegenerate()">
+                <button type="button" (click)="onRegenerate()">
 
-                🔄 Regenerar
+                    🔄 Regenerar
 
-            </button>
+                </button>
 
-        </div>
+            </div>
 
         }
 

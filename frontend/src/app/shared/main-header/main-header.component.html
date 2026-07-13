@@ -1,0 +1,35 @@
+<header class="main-header">
+    <div class="main-header-grid">
+        <div class="options-chat">
+            <div>
+                <span class="box-legend">Modelo activo</span>
+                <select name="" id="" class="box-option">
+                    <option value="">{{ model() }}</option>
+                </select>
+            </div>
+            <div>
+                <span class="box-legend">Estado</span>
+                <div class="box-option">
+                    @if (connectionStatus() === 'online') {
+                        <span class="state online">
+                            <mat-icon aria-hidden="false" fontIcon="circle"></mat-icon>
+                            {{ connectionLabel() }}
+                        </span>
+                    }
+                    @else if (connectionStatus() === 'offline') {
+                        <span class="state offline">
+                            <mat-icon aria-hidden="false" fontIcon="circle"></mat-icon>
+                            {{ connectionLabel() }}
+                        </span>
+                    }
+                </div>
+            </div>
+            <div>
+                <span class="box-legend">Proveedor</span>
+                <div class="box-option">
+                    <span>{{ provider() }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

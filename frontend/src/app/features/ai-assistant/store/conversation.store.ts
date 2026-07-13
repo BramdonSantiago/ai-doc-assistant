@@ -1,15 +1,22 @@
-import { Injectable, signal, computed, inject, DestroyRef, viewChild } from '@angular/core';
+import { Injectable, signal, computed, effect, inject, DestroyRef, viewChild } from '@angular/core';
 import { Conversation } from '../models/conversation.model';
 import { TaskType } from '../models/task-type.model';
 import { ChatMessage } from '../models/chat-message.model';
+import { ConnectionStatus } from '../models/connection-status.model';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class ConversationStore {
+    readonly connectionStatus = signal<ConnectionStatus>('online');
+
     private readonly _conversations = signal<Conversation[]>([]);
     private readonly _currentConversationId = signal<string | null>(null);
+
+    private readonly STORAGE_KEY = 'ai-doc-assistant-conversations';
+
+    private readonly ACTIVE_CONVERSATION_KEY = 'ai-doc-assistant-current-conversation';
 
 
     readonly conversations = this._conversations.asReadonly();
@@ -37,6 +44,18 @@ export class ConversationStore {
             .slice(0, 5)
 
     );
+
+    constructor() {
+
+        this.load();
+
+        if (this._conversations().length === 0) {
+            this.createConversation('documentation');
+        }
+
+        this.initializePersistence();
+
+    }
 
     createConversation(task: TaskType): void {
 
@@ -159,6 +178,63 @@ export class ConversationStore {
     }
 
     deleteConversation(id: string): void {
+
+    }
+
+    private initializePersistence(): void {
+
+        effect(() => {
+
+            this.persist();
+
+        });
+
+    }
+
+    private persist(): void {
+
+        localStorage.setItem(
+            this.STORAGE_KEY,
+            JSON.stringify(this._conversations())
+        );
+
+        localStorage.setItem(
+            this.ACTIVE_CONVERSATION_KEY,
+            this._currentConversationId() ?? ''
+        );
+
+    }
+
+    private load(): void {
+
+        const storedConversations =
+            localStorage.getItem(this.STORAGE_KEY);
+
+        const currentConversationId =
+            localStorage.getItem(this.ACTIVE_CONVERSATION_KEY);
+
+        if (storedConversations) {
+
+            const conversations: Conversation[] =
+                JSON.parse(storedConversations).map(
+                    (conversation: Conversation) => ({
+                        ...conversation,
+                        createdAt: new Date(conversation.createdAt),
+                        updatedAt: new Date(conversation.updatedAt)
+                    })
+                );
+
+            this._conversations.set(conversations);
+
+        }
+
+        if (currentConversationId) {
+
+            this._currentConversationId.set(
+                currentConversationId
+            );
+
+        }
 
     }
 }

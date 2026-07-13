@@ -1,19 +1,11 @@
-<div class="assistant-layout">
-
-    <app-sidebar></app-sidebar>
-
-
+<div class="assistant-content">
     <div class="workspace">
-
         <app-header [connectionStatus]="connectionStatus()" [responseTime]="formattedResponseTime()" [selectedTask]="selectedTask()" [assistant]="currentAssistant()" (taskSelected)="selectTask($event)"></app-header>
-
-        <app-chat-window [messages]="messages()" [isTyping]="isTyping()" [error]="error()" (retry)="retry()" [emptyState]="currentAssistant().emptyState"></app-chat-window>
-
-        <app-prompt-input [isTyping]="isTyping()" (sendMessage)="sendMessage($event)" [placeholder]="currentAssistant().placeholder"></app-prompt-input>
-
+        <div>
+            <app-chat-window [messages]="messages()" [isTyping]="isTyping()" [error]="error()" (retry)="retry()" [emptyState]="currentAssistant().emptyState"></app-chat-window>
+            <app-prompt-input [isTyping]="isTyping()" (sendMessage)="sendMessage($event)" [placeholder]="currentAssistant().placeholder"></app-prompt-input>
+        </div>
     </div>
-
     <app-context-panel></app-context-panel>
-
 
 </div>

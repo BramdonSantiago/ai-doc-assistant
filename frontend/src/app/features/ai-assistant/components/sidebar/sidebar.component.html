@@ -20,7 +20,12 @@
     <nav class="menu">
         <h3>Navegación</h3>
 
-        <a>
+        <a routerLink="/chat" routerLinkActive="active">
+            <mat-icon aria-hidden="false" aria-label="Book icon" fontIcon="book"></mat-icon>
+            Chat
+        </a>
+
+        <a routerLink="/history" routerLinkActive="active">
             <mat-icon aria-hidden="false" aria-label="Book icon" fontIcon="book"></mat-icon>
             Historial
         </a>
@@ -61,8 +66,7 @@
 
                     <a (click)="selectConversation(conversation.id)" [class.active]="conversation.id === currentConversation()?.id">
 
-                        <mat-icon aria-hidden="false" [fontIcon]="getAssistant(conversation.task).icon">
-                        </mat-icon>
+                        <mat-icon aria-hidden="false" [fontIcon]="getAssistant(conversation.task).icon"></mat-icon>
 
                         <div class="chat-info">
 
@@ -82,7 +86,7 @@
             }
         </ul>
 
-        <a class="view-all">
+        <a routerLink="/history" class="view-all">
             Ver todos los chats
             <mat-icon fontIcon="arrow_forward"></mat-icon>
         </a>

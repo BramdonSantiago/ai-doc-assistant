@@ -1,59 +1,26 @@
 <header class="header">
-
-    <div style="width: 65%;">
-        <h2>
-            AI Documentation Assistant
-        </h2>
-
-        <p>
-            Generate technical documentation with AI
-        </p>
-
-        <div>
-            <app-task-selector [selectedTask]="selectedTask()" (taskSelected)="taskSelected.emit($event)">
-            </app-task-selector>
-            <div>
-                <h2>
-                    <mat-icon aria-hidden="false" fontIcon="{{assistant().icon}}"></mat-icon>
-                    {{ assistant().label }}
-                </h2>
-        
-                <p>
-                    {{ assistant().description }}
-                </p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="model-info">
-
-        <div>
-            <label>Model</label>
-            <strong>Llama 3.1</strong>
-        </div>
-
-
-        <div>
-            <label>Status</label>
-            @if (connectionStatus() === 'online') {
-            <strong class="online">
-                {{ connectionLabel() }}
-            </strong>
-            }
-            @else if (connectionStatus() === 'offline') {
-            <strong class="offline">
-                {{ connectionLabel() }}
-            </strong>
-
-            }
-        </div>
+    <div class="content-task-response">
+        <app-task-selector [selectedTask]="selectedTask()" (taskSelected)="taskSelected.emit($event)">
+        </app-task-selector>
         @if (responseTime()) {
-        <div>
-            ⚡ {{ responseTime() }}
-        </div>
+            <div>
+                <span class="box-legend">Respuesta</span>
+                <div class="box-option">
+                    <mat-icon aria-hidden="false" fontIcon="speed" class="speed-icon">
+                    </mat-icon>
+                    {{ responseTime() }}
+                </div>
+            </div>
         }
 
     </div>
-
+    <div>
+        <h2>
+            <mat-icon aria-hidden="false" fontIcon="{{assistant().icon}}"></mat-icon>
+            {{ assistant().label }}
+        </h2>
+        <p>
+            {{ assistant().description }}
+        </p>
+    </div>
 </header>

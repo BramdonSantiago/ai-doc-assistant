@@ -17,7 +17,7 @@
 
     --primary-hover: #2563EB;
 
-    --success: #22C55E;
+    --success: #19e79b;
 
     --danger: #EF4444;
 
@@ -89,6 +89,29 @@ mat-icon {
         'wght' 300,
         'GRAD' 0,
         'opsz' 28;
+}
+
+
+.box-legend {
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+}
+
+.box-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--surface);
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-primary);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 

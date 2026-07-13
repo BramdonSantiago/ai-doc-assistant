@@ -1,0 +1,46 @@
+<section class="history-page">
+    <div class="history-header">
+        <h2>
+            <mat-icon aria-hidden="false" fontIcon="manage_history"></mat-icon>
+            Historial
+        </h2>
+        <p>Busca y administra todas tus conversaciones</p>
+    </div>
+    <div class="content-history">
+        <div class="search-box">
+
+            <!-- <mat-icon>search</mat-icon> -->
+
+            <input type="text" placeholder="Buscar conversación...">
+
+        </div>
+        <div class="history-list">
+            @for (conversation of conversations(); track conversation.id) {
+                <article class="history-item">
+
+                    <div class="history-icon">
+                        <mat-icon aria-hidden="false" [fontIcon]="getAssistant(conversation.task).icon"></mat-icon>
+                    </div>
+
+                    <div class="history-content">
+
+                        <h3 class="history-title">
+                            {{ conversation.title }}
+                        </h3>
+
+                        <div class="history-task">
+                            {{ conversation.task }} 
+                        </div>
+
+                        <div class="history-date">
+                            {{ conversation.updatedAt | date:'MMMM d y, h:mm a' }}
+                        </div>
+
+                    </div>
+
+                </article>
+            }
+        </div>
+    </div>
+
+</section>

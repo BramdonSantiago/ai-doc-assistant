@@ -30,17 +30,15 @@
 
 
     .bubble {
-
         max-width: 75%;
-
-        padding: 16px;
-
+        padding: 1rem;
         border-radius: 16px;
-
-        animation:
-            slideIn .25s ease;
-
-
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        -ms-border-radius: 16px;
+        -o-border-radius: 16px;
+        animation: slideIn .25s ease;
+        -webkit-animation: slideIn .25s ease;
     }
 
 
@@ -83,7 +81,7 @@
 
     .bubble {
 
-        background: var(--surface);
+        background-color: var(--surface);
 
         border-bottom-left-radius: 4px;
 
@@ -127,6 +125,7 @@
     }
 
 }
+
 
 
 

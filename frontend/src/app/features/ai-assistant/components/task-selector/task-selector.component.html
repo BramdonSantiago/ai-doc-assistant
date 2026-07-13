@@ -1,13 +1,16 @@
-<select [value]="selectedTask()" (change)="onChange($event)">
-
-    @for (assistant of assistants; track assistant.id) {
-
-    <option [value]="assistant.id">
-
-        {{ assistant.label }}
-
-    </option>
-
-    }
-
-</select>
+<div class="box-content">
+    <span class="box-legend">Agente</span>
+    <select [value]="selectedTask()" (change)="onChange($event)" class="box-option">
+    
+        @for (assistant of assistants; track assistant.id) {
+    
+        <option [value]="assistant.id">
+    
+            {{ assistant.label }}
+    
+        </option>
+    
+        }
+    
+    </select>
+</div>

@@ -1,27 +1,15 @@
-.assistant-layout {
-    min-height: 100dvh;
-    display: grid;
-
-    grid-template-columns:
-        280px 1fr 300px;
-
-    background: var(--background);
-
-    color: var(--text-primary);
-
-    font-family:
-        Inter,
-        system-ui,
-        sans-serif;
-
-}
-
-
-
-.workspace {
+.assistant-content {
     display: flex;
-    flex-direction: column;
+    .workspace { 
+        width: 70%;
+    }
+    app-context-panel {
+        width: 30%;
+    }
 }
+
+
+
 
 
 

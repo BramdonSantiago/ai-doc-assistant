@@ -1,5 +1,4 @@
 import { Component, signal, computed, inject, DestroyRef, viewChild, OnInit } from '@angular/core';
-import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { ChatWindowComponent } from '../../components/chat-window/chat-window.component';
 import { PromptInputComponent } from '../../components/prompt-input/prompt-input.component';
@@ -15,7 +14,7 @@ import { ConversationStore } from '../../store/conversation.store';
 
 @Component({
   selector: 'app-ai-assistant-page',
-  imports: [SidebarComponent, HeaderComponent, ChatWindowComponent, PromptInputComponent, ContextPanelComponent],
+  imports: [HeaderComponent, ChatWindowComponent, PromptInputComponent, ContextPanelComponent],
   templateUrl: './ai-assistant-page.component.html',
   styleUrl: './ai-assistant-page.component.scss'
 })
@@ -111,7 +110,7 @@ export class AiAssistantPageComponent implements OnInit {
       )
       .subscribe({
         next: response => {
-          this.connectionStatus.set('online');
+          this.conversationStore.connectionStatus.set("online");
           const elapsed = performance.now() - start;
           this.responseTime.set(elapsed);
           this.addMessage({
@@ -123,7 +122,7 @@ export class AiAssistantPageComponent implements OnInit {
         },
 
         error: error => {
-          this.connectionStatus.set('offline');
+          this.conversationStore.connectionStatus.set("offline");
           this.error.set(`
             ## ⚠️ No pude generar una respuesta
 

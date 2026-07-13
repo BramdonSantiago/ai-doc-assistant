@@ -32,6 +32,7 @@ export class MessageComponent {
     this.message().role === 'user'
   );
 
+
   readonly avatar = computed(() =>
     this.isUser() ? 'U' : 'AI'
   );
