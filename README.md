@@ -427,7 +427,7 @@ Desarrollar el frontend en Angular utilizando una arquitectura **Feature-Based**
 
 # 📄 Licencia
 
-Este proyecto fue desarrollado con fines educativos y como parte de un portafolio profesional.
+Este proyecto fue desarrollado con fines educativos, uso personal y como parte de un portafolio profesional.
 
 
 
