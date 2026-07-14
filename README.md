@@ -76,7 +76,7 @@ A[Angular]
 
 ---
 
-Request Flow
+sequenceDiagram
 
 User->>Angular: Send prompt
 
