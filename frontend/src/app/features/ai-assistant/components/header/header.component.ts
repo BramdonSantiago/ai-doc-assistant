@@ -1,4 +1,4 @@
-import { Component, input, output, computed } from '@angular/core';
+import { Component, input, output, computed, ChangeDetectionStrategy } from '@angular/core';
 import { ConnectionStatus } from '../../models/connection-status.model';
 import { TaskType } from '../../models/task-type.model';
 import { TaskSelectorComponent } from '../task-selector/task-selector.component';
@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-header',
   imports: [MatIconModule, TaskSelectorComponent],
   templateUrl: './header.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {

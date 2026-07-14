@@ -1,4 +1,4 @@
-import { Component, signal, computed, inject } from '@angular/core';
+import { Component, signal, computed, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ConversationStore } from '../../features/ai-assistant/store/conversation.store';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-main-header',
   imports: [MatIconModule],
   templateUrl: './main-header.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './main-header.component.scss'
 })
 export class MainHeaderComponent {

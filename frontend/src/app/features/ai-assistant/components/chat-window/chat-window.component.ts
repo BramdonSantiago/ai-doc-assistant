@@ -4,7 +4,8 @@ import {
   viewChild,
   ElementRef,
   effect,
-  output
+  output,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 
@@ -17,6 +18,7 @@ import { MarkdownModule } from 'ngx-markdown';
   selector: 'app-chat-window',
   imports: [MessageComponent, MarkdownModule],
   templateUrl: './chat-window.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './chat-window.component.scss'
 })
 export class ChatWindowComponent {

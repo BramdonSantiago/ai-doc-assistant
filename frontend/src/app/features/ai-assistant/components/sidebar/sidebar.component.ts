@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ConversationStore } from '../../store/conversation.store';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,7 @@ import { ConversationNavigatorService } from '../../../../core/services/conversa
   selector: 'app-sidebar',
   imports: [MatIconModule, CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {

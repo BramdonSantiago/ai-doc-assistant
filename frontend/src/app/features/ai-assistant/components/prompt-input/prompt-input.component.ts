@@ -1,10 +1,11 @@
-import { Component, model, input, output, ElementRef, viewChild } from '@angular/core';
+import { Component, model, input, output, ElementRef, viewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-prompt-input',
   imports: [FormsModule],
   templateUrl: './prompt-input.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './prompt-input.component.scss'
 })
 export class PromptInputComponent {

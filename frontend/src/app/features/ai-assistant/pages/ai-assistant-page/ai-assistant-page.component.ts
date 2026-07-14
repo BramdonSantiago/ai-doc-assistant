@@ -1,4 +1,4 @@
-import { Component, signal, computed, inject, DestroyRef, viewChild, OnInit } from '@angular/core';
+import { Component, signal, computed, inject, DestroyRef, viewChild, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { ChatWindowComponent } from '../../components/chat-window/chat-window.component';
 import { PromptInputComponent } from '../../components/prompt-input/prompt-input.component';
@@ -16,6 +16,7 @@ import { ConversationStore } from '../../store/conversation.store';
   selector: 'app-ai-assistant-page',
   imports: [HeaderComponent, ChatWindowComponent, PromptInputComponent, ContextPanelComponent],
   templateUrl: './ai-assistant-page.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './ai-assistant-page.component.scss'
 })
 export class AiAssistantPageComponent implements OnInit {

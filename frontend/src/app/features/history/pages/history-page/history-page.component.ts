@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, debounced, DestroyRef } from '@angular/core';
+import { Component, inject, signal, computed, debounced, DestroyRef, ChangeDetectionStrategy } from '@angular/core';
 import { ConversationStore } from '../../../ai-assistant/store/conversation.store';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +12,7 @@ import { ConversationNavigatorService } from '../../../../core/services/conversa
   selector: 'app-history-page',
   imports: [MatIconModule, HistoryItemComponent],
   templateUrl: './history-page.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './history-page.component.scss'
 })
 export class HistoryPageComponent {

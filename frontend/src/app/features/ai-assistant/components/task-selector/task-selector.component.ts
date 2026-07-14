@@ -1,10 +1,11 @@
-import { Component, input, output, computed } from '@angular/core';
+import { Component, input, output, computed, ChangeDetectionStrategy } from '@angular/core';
 import { TaskType } from '../../models/task-type.model';
 import { ASSISTANT_OPTIONS } from './../constants/assistant-options.constant';
 
 @Component({
   selector: 'app-task-selector',
   templateUrl: './task-selector.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './task-selector.component.scss'
 })
 export class TaskSelectorComponent {

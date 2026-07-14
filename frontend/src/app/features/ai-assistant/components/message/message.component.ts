@@ -3,7 +3,8 @@ import {
   computed,
   input,
   output,
-  signal
+  signal,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { MarkdownModule } from 'ngx-markdown';
@@ -14,6 +15,7 @@ import { ChatMessage } from '../../models/chat-message.model';
   selector: 'app-message',
   imports: [MarkdownModule],
   templateUrl: './message.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './message.component.scss'
 })
 export class MessageComponent {

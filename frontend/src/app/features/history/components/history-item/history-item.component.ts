@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { Conversation } from '../../../ai-assistant/models/conversation.model';
 import { TaskType } from '../../../ai-assistant/models/task-type.model';
 import { AssistantOption } from '../../../ai-assistant/models/assistant-option.model';
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-history-item',
   imports: [MatIcon, CommonModule],
   templateUrl: './history-item.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './history-item.component.scss'
 })
 export class HistoryItemComponent {
