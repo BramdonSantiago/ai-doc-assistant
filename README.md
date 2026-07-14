@@ -76,20 +76,6 @@ A[Angular]
 
 ---
 
-sequenceDiagram
-
-User->>Angular: Send prompt
-
-Angular->>Backend: POST /chat
-
-Backend->>Groq: Prompt
-
-Groq-->>Backend: Response
-
-Backend-->>Angular: Markdown
-
-Angular-->>User: Render chat
-
 ## 📦 Stack
 
 | Backend | Frontend | AI |
