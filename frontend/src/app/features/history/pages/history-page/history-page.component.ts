@@ -1,6 +1,6 @@
 import { Component, inject, signal, computed, debounced, DestroyRef } from '@angular/core';
 import { ConversationStore } from '../../../ai-assistant/store/conversation.store';
-import { CommonModule } from '@angular/common';
+
 import { MatIconModule } from '@angular/material/icon';
 import { HistoryItemComponent } from '../../components/history-item/history-item.component';
 import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
@@ -10,7 +10,7 @@ import { ConversationNavigatorService } from '../../../../core/services/conversa
 
 @Component({
   selector: 'app-history-page',
-  imports: [CommonModule, MatIconModule, HistoryItemComponent],
+  imports: [MatIconModule, HistoryItemComponent],
   templateUrl: './history-page.component.html',
   styleUrl: './history-page.component.scss'
 })
