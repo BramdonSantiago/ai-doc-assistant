@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, DestroyRef } from '@angular/core';
+import { Component, inject, signal, computed, debounced, DestroyRef } from '@angular/core';
 import { ConversationStore } from '../../../ai-assistant/store/conversation.store';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
