@@ -9,17 +9,21 @@
     <div class="content-history">
         <div class="search-box">
 
-            <!-- <mat-icon>search</mat-icon> -->
+            <mat-icon>search</mat-icon>
 
-            <input type="text" placeholder="Buscar conversación...">
+            <input (input)="updateSearch($any($event.target).value)" type="text" placeholder="Buscar conversación...">
 
         </div>
-        <div class="history-list">
-            @for (conversation of conversations(); track conversation.id) {
+        @if (filteredConversations().length <= 0) { 
+            <p>No se encontraron resultados</p>
+        } @else {
+            <div class="history-list">
+                @for (conversation of filteredConversations(); track conversation.id) {
                 <app-history-item [conversation]="conversation">
                 </app-history-item>
-            }
-        </div>
+                }
+            </div>
+        }
     </div>
 
 </section>
