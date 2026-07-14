@@ -45,6 +45,13 @@ export class ConversationStore {
 
     );
 
+    readonly sortedConversations = computed(() =>
+        [...this._conversations()].sort(
+            (a, b) =>
+                b.updatedAt.getTime() - a.updatedAt.getTime()
+        )
+    );
+
     constructor() {
 
         this.load();

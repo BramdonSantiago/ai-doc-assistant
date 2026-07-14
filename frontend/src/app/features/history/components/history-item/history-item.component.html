@@ -1,1 +1,23 @@
-<p>history-item works!</p>
+<article class="history-item">
+
+    <div class="history-icon">
+        <mat-icon aria-hidden="false" [fontIcon]="getAssistant(conversation().task).icon"></mat-icon>
+    </div>
+
+    <div class="history-content">
+
+        <h3 class="history-title">
+            {{ conversation().title }}
+        </h3>
+
+        <div class="history-task">
+            {{ conversation().task }}
+        </div>
+
+        <div class="history-date">
+            {{ conversation().updatedAt | date:'MMMM d y, h:mm a' }}
+        </div>
+
+    </div>
+
+</article>
