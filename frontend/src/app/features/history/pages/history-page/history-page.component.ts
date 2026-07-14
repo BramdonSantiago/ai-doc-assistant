@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { HistoryItemComponent } from '../../components/history-item/history-item.component';
 import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
+import { ConversationNavigatorService } from '../../../../core/services/conversation-navigator.service';
 
 @Component({
   selector: 'app-history-page',
@@ -20,6 +22,9 @@ export class HistoryPageComponent {
 
   readonly search = signal('');
   private readonly searchSubject = new Subject<string>();
+
+  private readonly conversationNavigator = inject(ConversationNavigatorService);
+
 
   constructor() {
     this.searchSubject
@@ -55,5 +60,10 @@ export class HistoryPageComponent {
       );
 
   });
+
+
+  openConversation(id: string): void {
+    this.conversationNavigator.open(id);
+  }
 
 }

@@ -18,8 +18,8 @@ export class ConversationStore {
 
     private readonly ACTIVE_CONVERSATION_KEY = 'ai-doc-assistant-current-conversation';
 
-
     readonly conversations = this._conversations.asReadonly();
+
 
     readonly currentConversation = computed(() =>
         this._conversations().find(

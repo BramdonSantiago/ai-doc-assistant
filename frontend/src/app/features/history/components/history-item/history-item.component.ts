@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Conversation } from '../../../ai-assistant/models/conversation.model';
 import { TaskType } from '../../../ai-assistant/models/task-type.model';
 import { AssistantOption } from '../../../ai-assistant/models/assistant-option.model';
@@ -14,12 +14,21 @@ import { CommonModule } from '@angular/common';
 })
 export class HistoryItemComponent {
   readonly conversation = input.required<Conversation>();
+  conversationSelected = output<string>();
 
   getAssistant(task: TaskType): AssistantOption {
 
     return ASSISTANT_OPTIONS.find(
       assistant => assistant.id === task
     )!;
+
+  }
+
+  openConversation(): void {
+
+    this.conversationSelected.emit(
+      this.conversation().id
+    );
 
   }
 }

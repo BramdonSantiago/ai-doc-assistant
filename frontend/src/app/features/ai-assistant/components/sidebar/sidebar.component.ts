@@ -7,6 +7,7 @@ import { AssistantOption } from '../../models/assistant-option.model';
 import { ASSISTANT_OPTIONS } from '../constants/assistant-options.constant';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
+import { ConversationNavigatorService } from '../../../../core/services/conversation-navigator.service';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class SidebarComponent {
   readonly recentConversations = this.conversationStore.recentConversations;
   readonly currentConversation = this.conversationStore.currentConversation;
 
+  private readonly conversationNavigator = inject(ConversationNavigatorService);
+
   getAssistant(task: TaskType): AssistantOption {
 
     return ASSISTANT_OPTIONS.find(
@@ -30,7 +33,13 @@ export class SidebarComponent {
   }
 
   selectConversation(id: string): void {
-    this.conversationStore.selectConversation(id);
+    this.conversationNavigator.open(id);
+  }
+
+  newChat(): void {
+
+    this.conversationNavigator.create('documentation');
+
   }
 
 }

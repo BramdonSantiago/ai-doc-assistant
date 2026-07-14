@@ -19,7 +19,7 @@
         } @else {
             <div class="history-list">
                 @for (conversation of filteredConversations(); track conversation.id) {
-                <app-history-item [conversation]="conversation">
+                <app-history-item [conversation]="conversation" (conversationSelected)="openConversation($event)">
                 </app-history-item>
                 }
             </div>
