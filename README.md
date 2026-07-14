@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="./docs/banner.png" width="900" alt="AI Documentation Assistant">
-</p>
-
 <h1 align="center">
 AI Documentation Assistant
 </h1>
@@ -188,8 +184,8 @@ Response
 
 | Chat |
 |------|
-| *(<img src="https://drive.google.com/uc?export=view&id=1lB4FF-1_bznIjpvU-p2l8GZoAJZnpI_5" style="width: 100%;">
-<img src="https://drive.google.com/uc?export=view&id=1rFr8aBQElyanQuPDUcYskoRB3GUBglHE" style="width: 100%;">)* |
+| <img src="https://drive.google.com/uc?export=view&id=1lB4FF-1_bznIjpvU-p2l8GZoAJZnpI_5" style="width: 100%;">
+<img src="https://drive.google.com/uc?export=view&id=1rFr8aBQElyanQuPDUcYskoRB3GUBglHE" style="width: 100%;"> |
 
 ---
 
