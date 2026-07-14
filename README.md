@@ -1,3 +1,15 @@
++-----------------------------------------------------------+
+
+🤖 AI Documentation Assistant
+
+Generate technical documentation using AI
+
+Angular • Node.js • Express • Groq • Llama
+
+[ Demo ] [ Documentation ] [ API ]
+
++-----------------------------------------------------------+
+
 <h1 align="center">
 AI Documentation Assistant
 </h1>
