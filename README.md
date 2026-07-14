@@ -1,15 +1,3 @@
-+-----------------------------------------------------------+
-
-🤖 AI Documentation Assistant
-
-Generate technical documentation using AI
-
-Angular • Node.js • Express • Groq • Llama
-
-[ Demo ] [ Documentation ] [ API ]
-
-+-----------------------------------------------------------+
-
 <h1 align="center">
 AI Documentation Assistant
 </h1>
@@ -33,6 +21,12 @@ Genera documentación técnica con Inteligencia Artificial.
 ## ✨ Overview
 
 AI Documentation Assistant es una aplicación tipo SaaS que utiliza modelos de lenguaje para generar documentación técnica de software.
+
+## 🎯 Problema
+
+La documentación técnica suele ser una de las tareas más repetitivas y que más tiempo consume durante el desarrollo de software. Mantenerla actualizada y consistente puede convertirse en un desafío a medida que los proyectos crecen.
+
+**AI Documentation Assistant** utiliza Inteligencia Artificial para asistir a los desarrolladores en la generación de documentación técnica de forma rápida, precisa y con un formato uniforme, permitiendo dedicar más tiempo al desarrollo y menos a tareas repetitivas.
 
 Su objetivo es demostrar una arquitectura Full Stack moderna basada en:
 
