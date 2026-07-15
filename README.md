@@ -44,8 +44,6 @@ Su objetivo es demostrar una arquitectura Full Stack moderna basada en:
 
 > Próximamente
 
-GIF del chat funcionando
-
 ---
 
 ## 🚀 Features
