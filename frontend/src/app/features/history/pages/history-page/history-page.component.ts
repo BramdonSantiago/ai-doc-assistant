@@ -1,11 +1,8 @@
 import { Component, inject, signal, computed, debounced, DestroyRef, ChangeDetectionStrategy } from '@angular/core';
 import { ConversationStore } from '../../../ai-assistant/store/conversation.store';
-
 import { MatIconModule } from '@angular/material/icon';
 import { HistoryItemComponent } from '../../components/history-item/history-item.component';
-import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { ConversationNavigatorService } from '../../../../core/services/conversation-navigator.service';
 
 @Component({
@@ -22,32 +19,18 @@ export class HistoryPageComponent {
   readonly sortedConversations = this.conversationStore.sortedConversations;
 
   readonly search = signal('');
-  private readonly searchSubject = new Subject<string>();
 
   private readonly conversationNavigator = inject(ConversationNavigatorService);
 
-
-  constructor() {
-    this.searchSubject
-      .pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe(value => {
-        this.search.set(value);
-      });
-  }
+  readonly debouncedSearch = debounced(this.search, 1000);
 
   updateSearch(value: string): void {
-
-    this.searchSubject.next(value);
-
+    this.search.set(value);
   }
 
   readonly filteredConversations = computed(() => {
 
-    const search = this.search().trim().toLowerCase();
+    const search = this.debouncedSearch.value().trim().toLowerCase();
 
     if (!search) {
       return this.sortedConversations();
