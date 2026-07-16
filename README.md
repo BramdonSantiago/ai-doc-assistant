@@ -10,7 +10,7 @@ Genera documentación técnica con Inteligencia Artificial.
 
 ![Node](https://img.shields.io/badge/Node.js-20.x-339933?logo=node.js)
 ![Express](https://img.shields.io/badge/Express-5-black?logo=express)
-![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular)
+![Angular](https://img.shields.io/badge/Angular-22-DD0031?logo=angular)
 ![Groq](https://img.shields.io/badge/Groq-API-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
